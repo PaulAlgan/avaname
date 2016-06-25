@@ -1,10 +1,20 @@
 var baseSite = require('./base.js');
 
-var TwitterSite = function(){
+var GitHubSite = function(){
   this.site = 'https://github.com/';
 }
 
-TwitterSite.prototype = Object.create(baseSite.__proto__);
-TwitterSite.prototype.constructor = baseSite;
+GitHubSite.prototype = Object.create(baseSite.__proto__);
+GitHubSite.prototype.constructor = baseSite;
 
-module.exports = new TwitterSite;
+GitHubSite.prototype.responseAvaiable = function (err, response) {
+  if (response.statusCode === 200) {
+    return false;
+  } else {
+    return true;
+  }
+
+}
+
+
+module.exports = new GitHubSite;
