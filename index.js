@@ -4,17 +4,29 @@ var program = require('commander');
 
 var twitterSite = require('./site/twitter.js');
 var githubSite = require('./site/github.js');
+var baseSite = require('./site/base.js');
 
 program
   .arguments('<name>', 'name to check')
   .action(function(name) {
 
-    twitterSite.checkAvaiable(name, function(avaiable){
-      console.log('Twitter: ' + resultString(avaiable));
-    });
+    var tasks = {};
+    tasks.twitter = function(callback){
+      twitterSite.checkAvaiable(name, function(avaiable){
+        callback(null, avaiable);
+      });
+    }
 
-    githubSite.checkAvaiable(name, function(avaiable){
-      console.log('GitHub: ' + resultString(avaiable));
+    tasks.github = function(callback){
+      githubSite.checkAvaiable(name, function(avaiable){
+        callback(null, avaiable);
+      });
+    }
+
+    async.parallel(tasks, function(err, results){
+      Object.keys(results).forEach(function(key){
+        console.log(key + ': ' + resultString(results[key]));
+      });
     });
 
   })
