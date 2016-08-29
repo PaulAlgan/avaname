@@ -5,6 +5,7 @@ var program = require('commander');
 var twitterSite = require('./site/twitter.js');
 var githubSite = require('./site/github.js');
 var baseSite = require('./site/base.js');
+var domain = require('./site/domain.js');
 
 program
   .arguments('<name>', 'name to check')
@@ -19,6 +20,12 @@ program
 
     tasks.github = function(callback){
       githubSite.checkAvaiable(name, function(avaiable){
+        callback(null, avaiable);
+      });
+    }
+
+    tasks.domain = function(callback){
+      domain.checkAvaiable(name, function(avaiable){
         callback(null, avaiable);
       });
     }
