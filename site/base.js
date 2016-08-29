@@ -25,22 +25,4 @@ BaseSite.prototype = {
   }
 }
 
-
-
-// BaseSite.prototype.checkAvaiable = function (name, callback) {
-//   var options = {
-//     url: this.site + name
-//   }
-//
-//   request.get(options, function(err, response, body){
-//     console.log(response.statusCode);
-//     callback(BaseSite.responseAvaiable)
-//   });
-// };
-//
-// BaseSite.prototype.responseAvaiable = function (err, response) {
-//   console.log('responseAvaiable');
-//   return true;
-// };
-
 module.exports = new BaseSite;
