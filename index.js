@@ -24,12 +24,6 @@ program
       });
     }
 
-    tasks.domain = function(callback){
-      domain.checkAvaiable(name, function(avaiable){
-        callback(null, avaiable);
-      });
-    }
-
     async.parallel(tasks, function(err, results){
       Object.keys(results).forEach(function(key){
         console.log(key + ': ' + resultString(results[key]));
