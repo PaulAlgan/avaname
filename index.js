@@ -34,5 +34,5 @@ program
   .parse(process.argv);
 
 function resultString(avaiable){
-  return avaiable?'\033[32mAvaiable!!\033[m': '\033[31mNOT avaiable\033[m'
+  return avaiable?'\033[32mAvailable!!\033[m': '\033[31mNOT Available\033[m'
 }
