@@ -17,5 +17,4 @@ $ avaname [NAME]              # Check NAME is available
 ### Support
   - Twitter (default)
   - GitHub (default)
-  - Domain Name (default)
   - other WIP....
